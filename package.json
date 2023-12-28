@@ -1,0 +1,29 @@
+{
+	"name": "cv",
+	"version": "1.0.0",
+	"description": "Scott Quested's Curriculum Vitae",
+	"main": "index.html",
+	"scripts": {
+		"dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+		"build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/scottquested/cv.git"
+	},
+	"keywords": [
+		"html",
+		"css",
+		"tailwind",
+		"javascript"
+	],
+	"author": "Scott Quested",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/scottquested/cv/issues"
+	},
+	"homepage": "https://github.com/scottquested/cv#readme",
+	"devDependencies": {
+		"tailwindcss": "^3.4.0"
+	}
+}
