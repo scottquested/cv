@@ -9,37 +9,93 @@
 			content="Scott Quested's C.V. A lead frontend engineer based in Hastings, East Sussex."
 		/>
 		<link rel="stylesheet" href="dist/styles.css" />
+		<script>
+			if (
+				localStorage.getItem("dark-mode") === "true" ||
+				(!("dark-mode" in localStorage) &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				document.querySelector("html").classList.add("dark");
+			} else {
+				document.querySelector("html").classList.remove("dark");
+			}
+		</script>
 	</head>
 
 	<body
-		class="font-mono text-sm bg-slate-100 text-slate-800 px-5 pt-5 max-w-[950px] mx-auto break:grid break:grid-cols-7 break:gap-5"
+		class="font-mono text-sm bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 px-5 pt-5 max-w-[950px] mx-auto break:grid break:grid-cols-7 break:gap-5"
 	>
+		<div class="col-span-1 col-start-7 flex justify-end">
+			<input
+				type="checkbox"
+				name="light-switch"
+				id="light-switch"
+				class="light-switch sr-only"
+			/>
+			<label class="relative cursor-pointer p-2" for="light-switch">
+				<svg
+					class="hidden dark:block"
+					width="16"
+					height="16"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						class="fill-neutral-300"
+						d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"
+					/>
+					<path
+						class="fill-neutral-500"
+						d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z"
+					/>
+				</svg>
+				<svg
+					class="dark:hidden"
+					width="16"
+					height="16"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						class="fill-neutral-400"
+						d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"
+					/>
+					<path
+						class="fill-neutral-600"
+						d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"
+					/>
+				</svg>
+				<span class="sr-only">Switch to light / dark version</span>
+			</label>
+		</div>
 		<header class="col-span-7 text-center">
 			<h1
-				class="inline-block relative text-3xl break:text-5xl uppercase font-sans font-semibold pb-2 border-b-2 border-b-gray-300"
+				class="inline-block relative text-4xl break:text-5xl uppercase font-sans font-semibold"
 			>
 				Scott Quested
 			</h1>
-			<h2 class="text-xl break:text-3xl pt-2 text-gray-500 uppercase">
+			<h2 class="text-xl break:text-3xl pt-2 text-neutral-500 uppercase">
 				Lead Frontend Engineer
 			</h2>
-			<p class="text-left my-10 py-5 border-y-2 border-y-gray-200 text-">
+			<p
+				class="text-left my-10 py-5 border-y-2 border-y-neutral-200 dark:border-y-neutral-800"
+			>
 				Highly accomplished in architecting scalable and efficient websites and
 				applications, specializing in visualizing big data, implementing testing
 				strategies, micro frontends and leveraging Typescript and React.
 			</p>
 		</header>
 		<main
-			class="col-span-5 text-xs break:border-r-2 break:border-r-gray-200 break:pr-10"
+			class="col-span-5 text-xs break:border-r-2 break:border-r-neutral-200 dark:border-r-neutral-800 break:pr-10"
 		>
-			<section class="mb-5 pb-5 border-b-2 border-b-gray-200">
+			<section
+				class="mb-5 pb-5 border-b-2 border-b-neutral-200 dark:border-b-neutral-800"
+			>
 				<div class="flex">
 					<img
 						src="img/util.png"
 						class="mr-3 w-[60px] h-[60px]"
 						alt="Util's logo"
 					/>
-					<div class="">
+					<div class="text-sm">
 						<h3 class="font-semibold">Util</h3>
 						<h4 class="uppercase">Lead Frontend Engineer</h4>
 						<time>Jan 2022 - Present</time>
@@ -69,14 +125,16 @@
 					</p>
 				</div>
 			</section>
-			<section class="mb-5 pb-5 border-b-2 border-b-gray-200">
+			<section
+				class="mb-5 pb-5 border-b-2 border-b-neutral-200 dark:border-b-neutral-800"
+			>
 				<div class="flex">
 					<img
 						src="img/ap.jpg"
 						class="mr-3 w-[60px] h-[60px]"
 						alt="Aigenpulse's logo"
 					/>
-					<div class="">
+					<div class="text-sm">
 						<h3 class="font-semibold">AigenPulse</h3>
 						<h4 class="uppercase">Senior Frontend Developer</h4>
 						<time>Apr 2021 - Dec 2021</time>
@@ -101,14 +159,16 @@
 					</p>
 				</div>
 			</section>
-			<section class="mb-5 pb-5 border-b-2 border-b-gray-200">
+			<section
+				class="mb-5 pb-5 border-b-2 border-b-neutral-200 dark:border-b-neutral-800"
+			>
 				<div class="flex">
 					<img
 						src="img/hd.jpg"
 						class="mr-3 w-[60px] h-[60px]"
 						alt="Hastings Direct's logo"
 					/>
-					<div class="">
+					<div class="text-sm">
 						<h3 class="font-semibold">Hastings Direct</h3>
 						<h4 class="uppercase">Frontend Developer</h4>
 						<time>Nov 2019 - Apr 2021</time>
@@ -132,14 +192,16 @@
 					</p>
 				</div>
 			</section>
-			<section class="mb-5 pb-5">
+			<section
+				class="mb-5 pb-5 border-b-2 border-b-neutral-200 break:border-b-0 dark:border-b-neutral-800"
+			>
 				<div class="flex">
 					<img
 						src="img/tjc.jpg"
 						class="mr-3 w-[60px] h-[60px]"
 						alt="The Jamieson Consultancy's logo"
 					/>
-					<div class="">
+					<div class="text-sm">
 						<h3 class="font-semibold">The Jamieson Consultancy</h3>
 						<h4 class="uppercase">Frontend Developer/Web Designer</h4>
 						<time>Aug 2014 - Nov 2019</time>
@@ -172,7 +234,7 @@
 					<li class="flex items-center">
 						<span
 							><svg
-								class="w-4 h-4 text-gray-800 mr-2"
+								class="w-4 h-4 text-neutral-800 dark:text-neutral-100 mr-2"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -190,7 +252,7 @@
 					<li class="flex items-center">
 						<span
 							><svg
-								class="w-4 h-4 text-gray-800 mr-2"
+								class="w-4 h-4 text-neutral-800 dark:text-neutral-100 mr-2"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
@@ -208,7 +270,7 @@
 					<li class="flex items-center">
 						<span
 							><svg
-								class="w-4 h-4 text-gray-800 mr-2"
+								class="w-4 h-4 text-neutral-800 dark:text-neutral-100 mr-2"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
@@ -228,7 +290,7 @@
 					<li class="flex items-center">
 						<span
 							><svg
-								class="w-4 h-4 text-gray-800 mr-2"
+								class="w-4 h-4 text-neutral-800 dark:text-neutral-100 mr-2"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -246,7 +308,7 @@
 					<li class="flex items-center">
 						<span
 							><svg
-								class="w-4 h-4 text-gray-800 mr-2"
+								class="w-4 h-4 text-neutral-800 dark:text-neutral-100 mr-2"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -314,10 +376,41 @@
 				</ul>
 			</section>
 		</sidebar>
-		<footer class="col-span-7 bg-gray-800 text-gray-100 -mx-5 mt-10">
-			<p class="text-center py-5 text-xs">
-				Built with good old fashioned HTML and Tailwind CSS.
+		<footer
+			class="col-span-7 mt-10 border-t-2 border-t-neutral-200 dark:border-t-neutral-800"
+		>
+			<p class="text-center pt-5 text-xs">
+				This page was built using HTML, vanilla JavaScript and Tailwind CSS.
+			</p>
+			<p class="text-center pb-5 text-xs italic">
+				Sometimes you just don't need a JS framework or library to build a
+				webpage <span class="not-italic">🤷‍♂️</span>
 			</p>
 		</footer>
+		<script>
+			const lightSwitches = document.querySelectorAll(".light-switch");
+			if (lightSwitches.length > 0) {
+				lightSwitches.forEach((lightSwitch, i) => {
+					if (localStorage.getItem("dark-mode") === "true") {
+						lightSwitch.checked = true;
+					}
+					lightSwitch.addEventListener("change", () => {
+						const { checked } = lightSwitch;
+						lightSwitches.forEach((el, n) => {
+							if (n !== i) {
+								el.checked = checked;
+							}
+						});
+						if (lightSwitch.checked) {
+							document.documentElement.classList.add("dark");
+							localStorage.setItem("dark-mode", true);
+						} else {
+							document.documentElement.classList.remove("dark");
+							localStorage.setItem("dark-mode", false);
+						}
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
