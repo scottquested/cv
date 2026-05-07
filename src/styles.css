@@ -8,3 +8,184 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@media print {
+	@page {
+		size: A4;
+		margin: 8mm 10mm;
+	}
+
+	body {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 0.4rem;
+		max-width: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0.55rem;
+		line-height: 1.3;
+		color: #262626;
+		background: white;
+	}
+
+	/* Force light mode colors */
+	* {
+		color-adjust: exact;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	/* Hide non-print elements */
+	.no-print,
+	#light-switch,
+	label[for="light-switch"],
+	footer,
+	body > a:first-of-type {
+		display: none;
+	}
+
+	/* Header */
+	header {
+		grid-column: span 7;
+	}
+
+	header h1 {
+		font-size: 1.4rem;
+	}
+
+	header h2 {
+		font-size: 0.75rem;
+		padding-top: 0.15rem;
+	}
+
+	header p {
+		border-color: #e5e5e5;
+		margin: 0.4rem 0;
+		padding: 0.3rem 0;
+		font-size: 0.55rem;
+		line-height: 1.35;
+	}
+
+	header p br {
+		display: none;
+	}
+
+	/* Main content */
+	main {
+		grid-column: span 5;
+		border-right: 1px solid #e5e5e5;
+		padding-right: 0.75rem;
+		font-size: 0.55rem;
+	}
+
+	/* Hide role logos in print */
+	main section img,
+	main section .bg-neutral-200 {
+		display: none;
+	}
+
+	main section {
+		margin-bottom: 0.25rem;
+		padding-bottom: 0.25rem;
+		break-inside: avoid;
+	}
+
+	main section .flex {
+		display: block;
+	}
+
+	main section .text-sm {
+		font-size: 0.55rem;
+	}
+
+	main section h3 {
+		font-size: 0.65rem;
+		display: inline;
+	}
+
+	main section h4 {
+		font-size: 0.55rem;
+		display: inline;
+	}
+
+	main section h3::after {
+		content: " · ";
+	}
+
+	main section time {
+		display: block;
+		font-size: 0.5rem;
+		color: #737373;
+	}
+
+	main section .mt-5 {
+		margin-top: 0.15rem;
+	}
+
+	main section ul {
+		padding-left: 0.85rem;
+		line-height: 1.3;
+		margin: 0;
+	}
+
+	main section li {
+		margin-bottom: 0;
+	}
+
+	main section .border-b-2 {
+		border-bottom-width: 1px;
+	}
+
+	/* Sidebar */
+	sidebar {
+		grid-column: 6 / span 2;
+		padding-left: 0.75rem;
+		font-size: 0.55rem;
+	}
+
+	sidebar section {
+		margin-bottom: 0.4rem;
+	}
+
+	sidebar section h3 {
+		font-size: 0.6rem;
+		margin-bottom: 0.1rem;
+	}
+
+	sidebar ul {
+		line-height: 1.3;
+	}
+
+	sidebar section:first-child ul {
+		line-height: 1.6;
+	}
+
+	/* Reset dark mode colors for print */
+	.dark\:bg-neutral-900,
+	.dark\:bg-neutral-800 {
+		background-color: transparent;
+	}
+
+	.dark\:text-neutral-100 {
+		color: #262626;
+	}
+
+	.dark\:border-y-neutral-800,
+	.dark\:border-b-neutral-800,
+	.dark\:border-r-neutral-800,
+	.dark\:border-t-neutral-800 {
+		border-color: #e5e5e5;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	/* SVG icons in sidebar */
+	sidebar svg {
+		color: #262626;
+		width: 0.65rem;
+		height: 0.65rem;
+	}
+}
