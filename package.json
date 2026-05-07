@@ -5,7 +5,9 @@
 	"main": "index.html",
 	"scripts": {
 		"dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-		"build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
+		"build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+		"pdf": "node scripts/generate-pdf.mjs",
+		"build:all": "pnpm build && pnpm pdf"
 	},
 	"repository": {
 		"type": "git",
@@ -25,6 +27,7 @@
 	"homepage": "https://github.com/scottquested/cv#readme",
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.2.4",
+		"puppeteer": "^24.43.0",
 		"tailwindcss": "^4.2.4"
 	}
 }
