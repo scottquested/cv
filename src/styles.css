@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "../*.html";
+
+@theme {
+	--font-sans: "Inter", sans-serif;
+	--breakpoint-break: 885px;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
