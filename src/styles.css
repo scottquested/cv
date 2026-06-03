@@ -80,7 +80,7 @@
 
 	/* Hide role logos in print */
 	main section img,
-	main section .bg-neutral-200 {
+	main section .w-15.h-15 {
 		display: none;
 	}
 

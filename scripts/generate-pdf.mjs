@@ -16,6 +16,15 @@ const page = await browser.newPage();
 
 await page.goto(`file://${htmlPath}`, { waitUntil: "networkidle0" });
 
+// Force light mode for PDF
+await page.evaluate(() => {
+	document.documentElement.classList.remove("dark");
+});
+
+await page.emulateMediaFeatures([
+	{ name: "prefers-color-scheme", value: "light" },
+]);
+
 await page.pdf({
 	path: outputPath,
 	format: "A4",
